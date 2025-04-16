@@ -1,3 +1,5 @@
+package Functions;
+
 public class PrimeFactor {
     private final int value;
     private int exponent;
