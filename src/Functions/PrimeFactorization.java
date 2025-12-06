@@ -1,6 +1,11 @@
 package Functions;
 import java.util.ArrayList;
 
+/*
+The isPrime method doesn't make sense. Can change it to if the arraylist is longer than two, it is not
+If the arraylist has length 2, need to check the exponent on the facotor. If exponent is not 1 then it is not prime.
+*/
+
 public class PrimeFactorization {
     private final ArrayList<PrimeFactor> factorization = new ArrayList<>();
     private final int value;
