@@ -178,16 +178,16 @@ public class PrimeFinders {
     /*
     Doesn't work very well
      */
-    public static /*ArrayList<Integer>*/void djikstrasAlgorithm(long max){
+    public static /*ArrayList<Integer>*/void dijkstrasAlgorithm(long max){
         long startTime = System.nanoTime();
 
-        ArrayList<DjikstraPrimes> primes = new ArrayList<>();
-        primes.add(new DjikstraPrimes(2));
+        ArrayList<DijkstraPrimes> primes = new ArrayList<>();
+        primes.add(new DijkstraPrimes(2));
 
         for(long i = 3; i < max; i++){
             for(int j = 0; j < primes.size(); j++){
                 if(i < primes.get(j).getNumberLess()){
-                    primes.add(new DjikstraPrimes(i));
+                    primes.add(new DijkstraPrimes(i));
                     break;
                 }
             }
