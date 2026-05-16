@@ -1,4 +1,4 @@
-package PrimeFinders;
+package primefinders;
 
 import java.util.ArrayList;
 

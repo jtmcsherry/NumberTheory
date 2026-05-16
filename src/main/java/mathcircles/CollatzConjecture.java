@@ -1,4 +1,4 @@
-package MathCircles;
+package mathcircles;
 
 public class CollatzConjecture {
     int max;
@@ -7,7 +7,7 @@ public class CollatzConjecture {
         this.max = max;
     }
 
-    public static int Collatz(int value){
+    public static int collatz(int value){
         long longValue = value;
         int length = 1;
 
@@ -27,7 +27,7 @@ public class CollatzConjecture {
         int maxChainValue = 0;
         int temp;
         for(int i = 1; i < max; i++){
-            temp = Collatz(i);
+            temp = collatz(i);
             if(temp > maxChainLength){
                 maxChainLength = temp;
                 maxChainValue = i;

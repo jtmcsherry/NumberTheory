@@ -1,4 +1,4 @@
-package PrimeFinders;
+package primefinders;
 
 public class DijkstraPrimes {
     private long prime;
