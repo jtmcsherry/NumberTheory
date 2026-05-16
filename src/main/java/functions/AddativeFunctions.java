@@ -7,32 +7,23 @@ public class AddativeFunctions {
     }
 
     /*
-    The total number of prime factors of n
-     */
-    public static int upperOmega(PrimeFactorization pf){
-        ArrayList<PrimeFactor> primeF = pf.getFactorization();
-        int value = 0;
+    Total number of prime factors, counting multiplicity
+    */
+    public static int upperOmega(PrimeFactorization  PF) {
+        int result = 0;
 
-        for(int i = 1; i < primeF.size(); i++){
-            value += upperOmegaForPrime(primeF.get(i));
+        for(PrimeFactor factor: PF.getFactorization()) {
+            result += factor.getExponent();
         }
 
-        return value;
+        return result;
     }
 
     /*
-
-     */
-    private static int upperOmegaForPrime(PrimeFactor factor){
-        return factor.getExponent();
-    }
-
-    /*
-    This funcrtion returns the number of distict prime factors
-     */
-    public static int lowerOmega(PrimeFactorization pf){
-        ArrayList<PrimeFactor> primeF = pf.getFactorization();
-        return primeF.size()-1;
+    Number of distinct primes diving n
+    */
+    public static int lowerOmega(PrimeFactorization  PF) {
+        return PF.getFactorization().size();
     }
 
     /*
@@ -40,21 +31,12 @@ public class AddativeFunctions {
     Sum of primes dividing n, 2000 = 23
      */
     public static int sumPrimes(PrimeFactorization pf){
-        ArrayList<PrimeFactor> primeF = pf.getFactorization();
+        ArrayList<PrimeFactor> factors = pf.getFactorization();
         int value = 0;
 
-        for(int i = 1; i < primeF.size(); i++){
-            value += sumPrimeDivisors(primeF.get(i));
-        }
-
-        return value;
-    }
-
-    private static int sumPrimeDivisors(PrimeFactor factor){
-        int value = 0;
-
-        for(int i = 0; i < factor.getExponent(); i++){
-            value += factor.getValue();
+        for (int i = 1; i < factors.size(); i++) {
+            PrimeFactor f = factors.get(i);
+            value += f.getExponent() * f.getValue();
         }
 
         return value;
