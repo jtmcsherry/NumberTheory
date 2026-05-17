@@ -38,19 +38,19 @@ class AddativeFunctionsTest {
     @Test
     void testLowerOmegaPrime() {
         PrimeFactorization pf = new PrimeFactorization(17);
-        assertEquals(2, AddativeFunctions.lowerOmega(pf));
+        assertEquals(1, AddativeFunctions.lowerOmega(pf));
     }
 
     @Test
     void testLowerOmegaComposite() {
         PrimeFactorization pf = new PrimeFactorization(12);
-        assertEquals(3, AddativeFunctions.lowerOmega(pf));
+        assertEquals(2, AddativeFunctions.lowerOmega(pf));
     }
 
     @Test
     void testLowerOmegaOne() {
         PrimeFactorization pf = new PrimeFactorization(1);
-        assertEquals(1, AddativeFunctions.lowerOmega(pf));
+        assertEquals(0, AddativeFunctions.lowerOmega(pf));
     }
 
     @Test

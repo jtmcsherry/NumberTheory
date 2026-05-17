@@ -110,7 +110,7 @@ class MultiplicativeFunctionsTest {
     @Test
     void testMuOne() {
         PrimeFactorization pf = new PrimeFactorization(1);
-        assertEquals(-1, MultiplicativeFunctions.mu(pf));
+        assertEquals(1, MultiplicativeFunctions.mu(pf));
     }
 
     @Test
