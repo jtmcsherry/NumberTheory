@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="functions.MultiplicativeFunctionsTest" time="0.159" tests="49" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="functions.MultiplicativeFunctionsTest" time="0.153" tests="49" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -11,7 +11,7 @@
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-17-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/jackmc/NumberTheory/target/surefire/surefirebooter-20260516172752272_3.jar /home/jackmc/NumberTheory/target/surefire 2026-05-16T17-27-52_084-jvmRun1 surefire-20260516172752272_1tmp surefire_0-20260516172752272_2tmp"/>
+    <property name="sun.java.command" value="/home/jackmc/NumberTheory/target/surefire/surefirebooter-20260516173432806_3.jar /home/jackmc/NumberTheory/target/surefire 2026-05-16T17-34-32_644-jvmRun1 surefire-20260516173432806_1tmp surefire_0-20260516173432806_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/jackmc/NumberTheory/target/test-classes:/home/jackmc/NumberTheory/target/classes:/home/jackmc/.m2/repository/org/junit/jupiter/junit-jupiter/5.11.4/junit-jupiter-5.11.4.jar:/home/jackmc/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.4/junit-jupiter-api-5.11.4.jar:/home/jackmc/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/jackmc/.m2/repository/org/junit/platform/junit-platform-commons/1.11.4/junit-platform-commons-1.11.4.jar:/home/jackmc/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/jackmc/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.4/junit-jupiter-params-5.11.4.jar:/home/jackmc/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.11.4/junit-jupiter-engine-5.11.4.jar:/home/jackmc/.m2/repository/org/junit/platform/junit-platform-engine/1.11.4/junit-platform-engine-1.11.4.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -26,7 +26,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/home/jackmc/NumberTheory/target/surefire/surefirebooter-20260516172752272_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/jackmc/NumberTheory/target/surefire/surefirebooter-20260516173432806_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.18+8-Ubuntu-124.04.1"/>
     <property name="user.name" value="jackmc"/>
@@ -51,53 +51,53 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testPsiPrimePower" classname="functions.MultiplicativeFunctionsTest" time="0.003"/>
-  <testcase name="testMuSquareFree" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testPsiPrimePower" classname="functions.MultiplicativeFunctionsTest" time="0.004"/>
+  <testcase name="testMuSquareFree" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
   <testcase name="testLiouvilleOne" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
   <testcase name="testPhiSigmaConsistency" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
-  <testcase name="testTauPerfectSquare" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testOne" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
-  <testcase name="testRad" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testTauPerfectSquare" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
+  <testcase name="testOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testRad" classname="functions.MultiplicativeFunctionsTest" time="0.005"/>
   <testcase name="testJordanTotientOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testJordanTotientPrime" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
   <testcase name="testMuOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testIsPerfectPrime" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testSigmaPerfect" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testJordanTotientKOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testJordanTotientKTwo" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
-  <testcase name="testOneAnyInput" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testIsDeficient" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
-  <testcase name="testPhiLarge" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testIsPerfectPrime" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
+  <testcase name="testSigmaPerfect" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
+  <testcase name="testJordanTotientKOne" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
+  <testcase name="testJordanTotientKTwo" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testOneAnyInput" classname="functions.MultiplicativeFunctionsTest" time="0.003"/>
+  <testcase name="testIsDeficient" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testPhiLarge" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
   <testcase name="testPhiPrime" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testPsiComposite" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testSquareFreeOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testIsPerfect" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
-  <testcase name="testUnitFunctionWithOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testIsPerfect" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testUnitFunctionWithOne" classname="functions.MultiplicativeFunctionsTest" time="0.003"/>
   <testcase name="testRadPrimePower" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testTauComposite" classname="functions.MultiplicativeFunctionsTest" time="0.003"/>
-  <testcase name="testSquareFreeFalse" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
-  <testcase name="testSquareFreePrime" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testTauComposite" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
+  <testcase name="testSquareFreeFalse" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testSquareFreePrime" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
   <testcase name="testLiouvilleComposite" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
-  <testcase name="testIsAbundant" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testTauPrime" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
-  <testcase name="testLiouvilleSquareFreeOddOmega" classname="functions.MultiplicativeFunctionsTest" time="0.003"/>
-  <testcase name="testSigmaPrimeSquare" classname="functions.MultiplicativeFunctionsTest" time="0.004"/>
-  <testcase name="testPsiPrime" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
-  <testcase name="testMuSquareFreeOddCount" classname="functions.MultiplicativeFunctionsTest" time="0.011"/>
+  <testcase name="testIsAbundant" classname="functions.MultiplicativeFunctionsTest" time="0.004"/>
+  <testcase name="testTauPrime" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testLiouvilleSquareFreeOddOmega" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testSigmaPrimeSquare" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
+  <testcase name="testPsiPrime" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testMuSquareFreeOddCount" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testIdentity" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testUnitFunctionGreaterThanOne" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
   <testcase name="testRadPrime" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testIdentityOne" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
+  <testcase name="testIdentityOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testSigmaComposite" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testSigmaOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testMuHasSquare" classname="functions.MultiplicativeFunctionsTest" time="0.0"/>
-  <testcase name="testSquareFreeTrue" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testSigmaPrime" classname="functions.MultiplicativeFunctionsTest" time="0.005"/>
+  <testcase name="testMuHasSquare" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
+  <testcase name="testSquareFreeTrue" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
+  <testcase name="testSigmaPrime" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testPhiOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testPhiPrimeSquare" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testPsiOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testLiouvilleSquareFreeEvenOmega" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
-  <testcase name="testRadOne" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
+  <testcase name="testLiouvilleSquareFreeEvenOmega" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
+  <testcase name="testRadOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testTauOne" classname="functions.MultiplicativeFunctionsTest" time="0.001"/>
   <testcase name="testPhiComposite" classname="functions.MultiplicativeFunctionsTest" time="0.002"/>
 </testsuite>
