@@ -18,7 +18,7 @@ public class MultiplicativeFunctions {
 
         for(PrimeFactor factor: PF.getFactorization()) {
             int p = factor.getValue();
-            byte e = factor.getExponent();
+            int e = factor.getExponent();
 
             int phiForP = fastPow(p, e - 1);
 
@@ -41,7 +41,7 @@ public class MultiplicativeFunctions {
 
         for(PrimeFactor factor: PF.getFactorization()) {
             int p = factor.getValue();
-            byte e = factor.getExponent();
+            int e = factor.getExponent();
 
             int sigmaForP = fastPow(p, e + 1);
 
@@ -60,7 +60,7 @@ public class MultiplicativeFunctions {
         int result = 1;
 
         for(PrimeFactor factor: PF.getFactorization()) {
-            byte e = factor.getExponent();
+            int e = factor.getExponent();
 
             result *= (e + 1);
         }
@@ -154,7 +154,7 @@ public class MultiplicativeFunctions {
 
         for(PrimeFactor factor: PF.getFactorization()) {
             int p = factor.getValue();
-            byte e = factor.getExponent();
+            int e = factor.getExponent();
 
             int psiForP = fastPow(p, e-1);
 
@@ -172,7 +172,7 @@ public class MultiplicativeFunctions {
         
         for(PrimeFactor factor: PF.getFactorization()) {
             int p = factor.getValue();
-            byte e = factor.getExponent();
+            int e = factor.getExponent();
 
             int exponent_1 = e * k;
             int value_1 = fastPow(p, exponent_1);

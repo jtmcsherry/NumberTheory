@@ -22,7 +22,7 @@ public class Main {
         PrimeFactorization pf = new PrimeFactorization(4);
         PrimeFactor twoValue = new PrimeFactor(2, 2);
         System.out.println(MultiplicativeFunctions.sigma(pf));
-        System.out.println(MultiplicativeFunctions.convolveForSinglePrime(twoValue));
+        System.out.println(Convolve.convolveForSinglePrime(twoValue));
         /*
         System.out.println(MultiplicativeFunctions.phi(pf));
         System.out.println(MultiplicativeFunctions.tau(pf));
