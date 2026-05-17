@@ -9,10 +9,10 @@ public class AddativeFunctions {
     /*
     Total number of prime factors, counting multiplicity
     */
-    public static int upperOmega(PrimeFactorization  PF) {
+    public static int upperOmega(PrimeFactorization  pf) {
         int result = 0;
 
-        for(PrimeFactor factor: PF.getFactorization()) {
+        for(PrimeFactor factor: pf.getFactorization()) {
             result += factor.getExponent();
         }
 
@@ -22,8 +22,8 @@ public class AddativeFunctions {
     /*
     Number of distinct primes diving n
     */
-    public static int lowerOmega(PrimeFactorization  PF) {
-        return PF.getFactorization().size();
+    public static int lowerOmega(PrimeFactorization  pf) {
+        return pf.getFactorization().size();
     }
 
     /*

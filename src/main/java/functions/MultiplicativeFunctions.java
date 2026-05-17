@@ -13,10 +13,10 @@ public class MultiplicativeFunctions {
     This is a helper method for phi it returns the phi value for a single prime factor
     the equation is (p-1)/p
     */
-    public static int phi(PrimeFactorization PF) {
+    public static int phi(PrimeFactorization pf) {
         int result = 1;
 
-        for(PrimeFactor factor: PF.getFactorization()) {
+        for(PrimeFactor factor: pf.getFactorization()) {
             int p = factor.getValue();
             int e = factor.getExponent();
 
@@ -36,10 +36,10 @@ public class MultiplicativeFunctions {
     the formula is
     (p^(k+1)-1)/(p-1)
     */
-    public static int sigma(PrimeFactorization PF) {
+    public static int sigma(PrimeFactorization pf) {
         int result = 1;
 
-        for(PrimeFactor factor: PF.getFactorization()) {
+        for(PrimeFactor factor: pf.getFactorization()) {
             int p = factor.getValue();
             int e = factor.getExponent();
 
@@ -56,10 +56,10 @@ public class MultiplicativeFunctions {
     /*
     //ToDo: add documentation for this function
      */
-    public static int tau(PrimeFactorization PF) {
+    public static int tau(PrimeFactorization pf) {
         int result = 1;
 
-        for(PrimeFactor factor: PF.getFactorization()) {
+        for(PrimeFactor factor: pf.getFactorization()) {
             int e = factor.getExponent();
 
             result *= (e + 1);
@@ -81,14 +81,14 @@ public class MultiplicativeFunctions {
     Which means that it has a square divisor
     If there is just a single power of a prime it will return -1
     */
-    public static byte mu(PrimeFactorization PF) {
-        for(PrimeFactor factor: PF.getFactorization()) {
+    public static byte mu(PrimeFactorization pf) {
+        for(PrimeFactor factor: pf.getFactorization()) {
             if (factor.getExponent() > 1){
                 return 0;
             }
         }
 
-        if (PF.getFactorization().size() % 2 == 0){
+        if (pf.getFactorization().size() % 2 == 0){
             return 1;
         }
 
@@ -123,10 +123,10 @@ public class MultiplicativeFunctions {
     /*
     Product of distinct primes dividing n
     */
-    public static int rad(PrimeFactorization  PF) {
+    public static int rad(PrimeFactorization  pf) {
         int result = 1;
 
-        for(PrimeFactor factor: PF.getFactorization()) {
+        for(PrimeFactor factor: pf.getFactorization()) {
             result *= factor.getValue();
         }
 
@@ -136,8 +136,8 @@ public class MultiplicativeFunctions {
     /*
     Liouville Function, 1 if bigOmega is even, -1 is bigOmega is odd
     */
-    public static byte liouville(PrimeFactorization  PF) {
-        int bigOmega = AddativeFunctions.upperOmega(PF);
+    public static byte liouville(PrimeFactorization  pf) {
+        int bigOmega = AddativeFunctions.upperOmega(pf);
 
         if (bigOmega % 2 == 0){
             return 1;
@@ -149,10 +149,10 @@ public class MultiplicativeFunctions {
     /*
     Dedekind Psi
     */
-    public static int psi(PrimeFactorization PF) {
+    public static int psi(PrimeFactorization pf) {
         int result = 1;
 
-        for(PrimeFactor factor: PF.getFactorization()) {
+        for(PrimeFactor factor: pf.getFactorization()) {
             int p = factor.getValue();
             int e = factor.getExponent();
 
@@ -167,20 +167,20 @@ public class MultiplicativeFunctions {
     /*
     Jordan Totients
     */
-    public static int jordanTotient(PrimeFactorization PF, int k){
+    public static int jordanTotient(PrimeFactorization pf, int k){
         int result = 1;
         
-        for(PrimeFactor factor: PF.getFactorization()) {
+        for(PrimeFactor factor: pf.getFactorization()) {
             int p = factor.getValue();
             int e = factor.getExponent();
 
-            int exponent_1 = e * k;
-            int value_1 = fastPow(p, exponent_1);
+            int exponent1 = e * k;
+            int value1 = fastPow(p, exponent1);
 
-            int exponent_2 = (e - 1) * k;
-            int value_2 = fastPow(p, exponent_2);
+            int exponent2 = (e - 1) * k;
+            int value2 = fastPow(p, exponent2);
 
-            result *= value_1 - value_2;
+            result *= value1 - value2;
         }
 
         return result;
@@ -191,8 +191,8 @@ public class MultiplicativeFunctions {
     If every prime factor has an exponent 1, returns 1
     Otherwise returns 0
     */
-    public static byte squareFree(PrimeFactorization PF) {
-        for(PrimeFactor factor: PF.getFactorization()) {
+    public static byte squareFree(PrimeFactorization pf) {
+        for(PrimeFactor factor: pf.getFactorization()) {
             if(factor.getExponent() != 1) {
                 return 0;
             }
