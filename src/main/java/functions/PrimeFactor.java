@@ -1,4 +1,4 @@
-package Functions;
+package functions;
 
 public class PrimeFactor {
     private final int value;

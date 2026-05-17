@@ -1,4 +1,4 @@
-package PrimeFinders;
+package primefinders;
 
 import java.util.ArrayList;
 
@@ -16,8 +16,8 @@ public class Main {
         It was strange that the brute force was faster but that was only for smaller input numbers
          */
 
-        System.out.println("Djiksta Algorithm: ");
-        PrimeFinders.djikstrasAlgorithm(num);
+        System.out.println("Dijkstra Algorithm: ");
+        PrimeFinders.dijkstrasAlgorithm(num);
 
 
 

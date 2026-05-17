@@ -1,4 +1,4 @@
-package MathCircles;
+package mathcircles;
 
 import java.math.BigInteger;
 

@@ -1,10 +1,10 @@
-package PrimeFinders;
+package primefinders;
 
-public class DjikstraPrimes {
+public class DijkstraPrimes {
     private long prime;
     private long numberLess;
 
-    public DjikstraPrimes(long num){
+    public DijkstraPrimes(long num){
         prime = num;
         numberLess = num*num;
     }

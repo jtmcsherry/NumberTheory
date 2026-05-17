@@ -1,4 +1,4 @@
-package Functions;
+package functions;
 import java.util.ArrayList;
 
 public class MultiplicativeFunctions {
@@ -120,7 +120,7 @@ public class MultiplicativeFunctions {
     /*
     This function returns that value that it was given
      */
-    public static int N(PrimeFactorization pf){
+    public static int identity(PrimeFactorization pf){
         return pf.getValue();
     }
 
