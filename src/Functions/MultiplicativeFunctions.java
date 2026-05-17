@@ -1,4 +1,4 @@
-package functions;
+package Functions;
 import java.util.ArrayList;
 
 public class MultiplicativeFunctions {
@@ -13,13 +13,12 @@ public class MultiplicativeFunctions {
     This is a helper method for phi it returns the phi value for a single prime factor
     the equation is (p-1)/p
     */
-    public static int phi(PrimeFactorization pf) {
+    public static int phi(PrimeFactorization PF) {
         int result = 1;
 
-        for(PrimeFactor factor: pf.getFactorization()) {
-            if (factor.getValue() == 1) continue;
+        for(PrimeFactor factor: PF.getFactorization()) {
             int p = factor.getValue();
-            int e = factor.getExponent();
+            byte e = factor.getExponent();
 
             int phiForP = fastPow(p, e - 1);
 
@@ -37,13 +36,12 @@ public class MultiplicativeFunctions {
     the formula is
     (p^(k+1)-1)/(p-1)
     */
-    public static int sigma(PrimeFactorization pf) {
+    public static int sigma(PrimeFactorization PF) {
         int result = 1;
 
-        for(PrimeFactor factor: pf.getFactorization()) {
-            if (factor.getValue() == 1) continue;
+        for(PrimeFactor factor: PF.getFactorization()) {
             int p = factor.getValue();
-            int e = factor.getExponent();
+            byte e = factor.getExponent();
 
             int sigmaForP = fastPow(p, e + 1);
 
@@ -58,12 +56,11 @@ public class MultiplicativeFunctions {
     /*
     //ToDo: add documentation for this function
      */
-    public static int tau(PrimeFactorization pf) {
+    public static int tau(PrimeFactorization PF) {
         int result = 1;
 
-        for(PrimeFactor factor: pf.getFactorization()) {
-            if (factor.getValue() == 1) continue;
-            int e = factor.getExponent();
+        for(PrimeFactor factor: PF.getFactorization()) {
+            byte e = factor.getExponent();
 
             result *= (e + 1);
         }
@@ -84,17 +81,14 @@ public class MultiplicativeFunctions {
     Which means that it has a square divisor
     If there is just a single power of a prime it will return -1
     */
-    public static byte mu(PrimeFactorization pf) {
-        int distinctPrimes = 0;
-        for(PrimeFactor factor: pf.getFactorization()) {
-            if (factor.getValue() == 1) continue;
+    public static byte mu(PrimeFactorization PF) {
+        for(PrimeFactor factor: PF.getFactorization()) {
             if (factor.getExponent() > 1){
                 return 0;
             }
-            distinctPrimes++;
         }
 
-        if (distinctPrimes % 2 == 0){
+        if (PF.getFactorization().size() % 2 == 0){
             return 1;
         }
 
@@ -110,8 +104,8 @@ public class MultiplicativeFunctions {
 
     /*
     This function returns that value that it was given
-     */
-    public static int identity(PrimeFactorization pf){
+    */
+    public static int N(PrimeFactorization pf){
         return pf.getValue();
     }
 
@@ -129,10 +123,10 @@ public class MultiplicativeFunctions {
     /*
     Product of distinct primes dividing n
     */
-    public static int rad(PrimeFactorization  pf) {
+    public static int rad(PrimeFactorization  PF) {
         int result = 1;
 
-        for(PrimeFactor factor: pf.getFactorization()) {
+        for(PrimeFactor factor: PF.getFactorization()) {
             result *= factor.getValue();
         }
 
@@ -142,8 +136,8 @@ public class MultiplicativeFunctions {
     /*
     Liouville Function, 1 if bigOmega is even, -1 is bigOmega is odd
     */
-    public static byte liouville(PrimeFactorization  pf) {
-        int bigOmega = AddativeFunctions.upperOmega(pf);
+    public static byte liouville(PrimeFactorization  PF) {
+        int bigOmega = bigOmega(PF);
 
         if (bigOmega % 2 == 0){
             return 1;
@@ -155,13 +149,12 @@ public class MultiplicativeFunctions {
     /*
     Dedekind Psi
     */
-    public static int psi(PrimeFactorization pf) {
+    public static int psi(PrimeFactorization PF) {
         int result = 1;
 
-        for(PrimeFactor factor: pf.getFactorization()) {
-            if (factor.getValue() == 1) continue;
+        for(PrimeFactor factor: PF.getFactorization()) {
             int p = factor.getValue();
-            int e = factor.getExponent();
+            byte e = factor.getExponent();
 
             int psiForP = fastPow(p, e-1);
 
@@ -174,21 +167,20 @@ public class MultiplicativeFunctions {
     /*
     Jordan Totients
     */
-    public static int jordanTotient(PrimeFactorization pf, int k){
+    public static int jordanTotient(PrimeFactorization PF, int k){
         int result = 1;
         
-        for(PrimeFactor factor: pf.getFactorization()) {
-            if (factor.getValue() == 1) continue;
+        for(PrimeFactor factor: PF.getFactorization()) {
             int p = factor.getValue();
-            int e = factor.getExponent();
+            byte e = factor.getExponent();
 
-            int exponent1 = e * k;
-            int value1 = fastPow(p, exponent1);
+            int exponent_1 = e * k;
+            int value_1 = fastPow(p, exponent_1);
 
-            int exponent2 = (e - 1) * k;
-            int value2 = fastPow(p, exponent2);
+            int exponent_2 = (e - 1) * k;
+            int value_2 = fastPow(p, exponent_2);
 
-            result *= value1 - value2;
+            result *= value_1 - value_2;
         }
 
         return result;
@@ -199,8 +191,8 @@ public class MultiplicativeFunctions {
     If every prime factor has an exponent 1, returns 1
     Otherwise returns 0
     */
-    public static byte squareFree(PrimeFactorization pf) {
-        for(PrimeFactor factor: pf.getFactorization()) {
+    public static byte squareFree(PrimeFactorization PF) {
+        for(PrimeFactor factor: PF.getFactorization()) {
             if(factor.getExponent() != 1) {
                 return 0;
             }
@@ -209,16 +201,42 @@ public class MultiplicativeFunctions {
         return 1;
     }
 
-    private static int fastPow(int base, int exp) {
-        int result = 1;
-        while (exp > 0) {
-            if ((exp & 1) == 1) {
-                result *= base;
-            }
-            base *= base;
-            exp >>= 1;
+    /*
+    Carmichael Function
+    */
+    public static int carmichael(PrimeFactorization PF) {
+        //ToDO: Implement this
+    }
+
+    /*
+
+    */
+    public static int legendreSymbol(PrimeFactorization pf, int prime){
+        if(!PrimeFactorization.isPrime(prime)){
+            System.out.println(prime + " must be prime.");
+            return 0;
         }
-        return result;
+
+        int value = 1;
+        long checkValue;
+        PrimeFactor p;
+        ArrayList<PrimeFactor> primeF = pf.getFactorization();
+        for(int i = 1; i < primeF.size(); i++){
+            p = primeF.get(i);
+            if(p.getExponent() % 2 == 1 && p.getExponent() > 2){
+                return -1;
+            }
+
+            int primeFactorValue = (int)Math.pow(p.getValue(), p.getExponent());
+            checkValue = (long)Math.pow(primeFactorValue, (double)(prime - 1) /2);
+            checkValue = checkValue % prime;
+            if(checkValue == prime - 1){
+                value = value * -1;
+            }else{
+                value = (int)(value * checkValue);
+            }
+        }
+        return value;
     }
 
     /*
@@ -237,5 +255,23 @@ public class MultiplicativeFunctions {
         }
 
         return -1;
+    }
+
+
+    public static int convolve(PrimeFactorization pf){
+        ArrayList<PrimeFactor> factors = pf.getFactorization();
+        for(int i = 1; i < factors.size(); i++){
+
+        }
+        return 0;
+    }
+
+    public static int convolveForSinglePrime(PrimeFactor factor){
+        int value = 0;
+        int exponent = factor.getExponent() - 1;
+        for(int i = 0; i < factor.getExponent() + 1; i++){
+            value += tauForPrime(new PrimeFactor(factor.getValue(), exponent - i)) * phiForPrime(new PrimeFactor(factor.getValue(), exponent));
+        }
+        return value;
     }
 }

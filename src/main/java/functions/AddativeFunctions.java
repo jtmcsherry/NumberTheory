@@ -13,6 +13,7 @@ public class AddativeFunctions {
         int result = 0;
 
         for(PrimeFactor factor: pf.getFactorization()) {
+            if (factor.getValue() == 1) continue;
             result += factor.getExponent();
         }
 
@@ -23,7 +24,12 @@ public class AddativeFunctions {
     Number of distinct primes diving n
     */
     public static int lowerOmega(PrimeFactorization  pf) {
-        return pf.getFactorization().size();
+        int count = 0;
+        for (PrimeFactor factor : pf.getFactorization()) {
+            if (factor.getValue() == 1) continue;
+            count++;
+        }
+        return count;
     }
 
     /*
