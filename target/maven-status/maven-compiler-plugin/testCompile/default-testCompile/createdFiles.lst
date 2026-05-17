@@ -1,4 +1,5 @@
 functions/PrimeFactorTest.class
 functions/MultiplicativeFunctionsTest.class
+functions/LegendreSymbolTest.class
 functions/PrimeFactorizationTest.class
 functions/AddativeFunctionsTest.class

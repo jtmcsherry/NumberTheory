@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="functions.PrimeFactorTest" time="0.185" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="functions.LegendreSymbolTest" time="0.148" tests="26" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -51,11 +51,46 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testToStringExponentOne" classname="functions.PrimeFactorTest" time="0.089"/>
-  <testcase name="testLargeExponent" classname="functions.PrimeFactorTest" time="0.002"/>
-  <testcase name="testValueOneExponentOne" classname="functions.PrimeFactorTest" time="0.002"/>
-  <testcase name="testIncreaseExponent" classname="functions.PrimeFactorTest" time="0.004"/>
-  <testcase name="testToString" classname="functions.PrimeFactorTest" time="0.003"/>
-  <testcase name="testZeroExponent" classname="functions.PrimeFactorTest" time="0.002"/>
-  <testcase name="testConstructor" classname="functions.PrimeFactorTest" time="0.002"/>
+  <testcase name="testPFRejectsPEquals2" classname="functions.LegendreSymbolTest" time="0.014">
+    <system-out><![CDATA[2 must be an odd prime.
+]]></system-out>
+  </testcase>
+  <testcase name="testOneIsAlwaysResidue" classname="functions.LegendreSymbolTest" time="0.004"/>
+  <testcase name="testNegativeOneMod3" classname="functions.LegendreSymbolTest" time="0.003"/>
+  <testcase name="testNegativeOneMod5" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testPFRejectsNonPrimeP" classname="functions.LegendreSymbolTest" time="0.011">
+    <system-out><![CDATA[9 must be an odd prime.
+]]></system-out>
+  </testcase>
+  <testcase name="testTwoModP" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testZeroIsDivisible" classname="functions.LegendreSymbolTest" time="0.004"/>
+  <testcase name="testQuadraticReciprocityScenario" classname="functions.LegendreSymbolTest" time="0.013"/>
+  <testcase name="testWithPrimeFactorization" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testRejectsNonPrimeP" classname="functions.LegendreSymbolTest" time="0.003">
+    <system-out><![CDATA[1 must be an odd prime.
+4 must be an odd prime.
+6 must be an odd prime.
+9 must be an odd prime.
+15 must be an odd prime.
+]]></system-out>
+  </testcase>
+  <testcase name="testNegativeReduction" classname="functions.LegendreSymbolTest" time="0.001"/>
+  <testcase name="testPFWithLargeComposite" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testPdividesA" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testPFWithOne" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testCompositeSquare" classname="functions.LegendreSymbolTest" time="0.003"/>
+  <testcase name="testRejectsPEquals2" classname="functions.LegendreSymbolTest" time="0.002">
+    <system-out><![CDATA[2 must be an odd prime.
+]]></system-out>
+  </testcase>
+  <testcase name="testPFWithSquare" classname="functions.LegendreSymbolTest" time="0.003"/>
+  <testcase name="testQuadraticResiduesMod11" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testSameValueDifferentP" classname="functions.LegendreSymbolTest" time="0.004"/>
+  <testcase name="testJacobiSymbolExample" classname="functions.LegendreSymbolTest" time="0.001"/>
+  <testcase name="testLargeA" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testQuadraticResiduesMod7" classname="functions.LegendreSymbolTest" time="0.001"/>
+  <testcase name="testCompositeProduct" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testQuadraticNonresiduesMod7" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testPFWithPrime" classname="functions.LegendreSymbolTest" time="0.002"/>
+  <testcase name="testQuadraticNonresiduesMod11" classname="functions.LegendreSymbolTest" time="0.01"/>
 </testsuite>
