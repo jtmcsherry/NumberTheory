@@ -5,9 +5,9 @@ functions/AddativeFunctions.class
 functions/MultiplicativeFunctions.class
 functions/Main.class
 functions/PrimeFactor.class
-mathcircles/CollatzConjecture.class
-primefinders/DijkstraPrimes.class
 functions/LegendreSymbol.class
+primefinders/DijkstraPrimes.class
+mathcircles/CollatzConjecture.class
 primefinders/PrimeFinders.class
 functions/Convolve.class
 functions/PrimeFactorization.class

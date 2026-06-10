@@ -1,5 +1,6 @@
 functions/PrimeFactorTest.class
 functions/MultiplicativeFunctionsTest.class
 functions/LegendreSymbolTest.class
+server/CalculatorServerTest.class
 functions/PrimeFactorizationTest.class
 functions/AddativeFunctionsTest.class

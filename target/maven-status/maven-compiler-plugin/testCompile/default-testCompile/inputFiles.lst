@@ -1,5 +1,6 @@
-/home/jackmc/NumberTheory/src/test/java/functions/AddativeFunctionsTest.java
-/home/jackmc/NumberTheory/src/test/java/functions/LegendreSymbolTest.java
-/home/jackmc/NumberTheory/src/test/java/functions/MultiplicativeFunctionsTest.java
-/home/jackmc/NumberTheory/src/test/java/functions/PrimeFactorTest.java
-/home/jackmc/NumberTheory/src/test/java/functions/PrimeFactorizationTest.java
+/home/jackm/NumberTheory/src/test/java/functions/AddativeFunctionsTest.java
+/home/jackm/NumberTheory/src/test/java/functions/LegendreSymbolTest.java
+/home/jackm/NumberTheory/src/test/java/functions/MultiplicativeFunctionsTest.java
+/home/jackm/NumberTheory/src/test/java/functions/PrimeFactorTest.java
+/home/jackm/NumberTheory/src/test/java/functions/PrimeFactorizationTest.java
+/home/jackm/NumberTheory/src/test/java/server/CalculatorServerTest.java
