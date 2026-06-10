@@ -25,5 +25,9 @@ bin/
 ### VS Code ###
 .vscode/
 
+### Maven ###
+target/
+.mvn/wrapper/maven-wrapper.jar
+
 ### Mac OS ###
 .DS_Store

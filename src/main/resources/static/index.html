@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Theory Calculator</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: monospace;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+.container { max-width: 640px; margin: 0 auto; }
+h1 {
+  color: #e94560;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+.card {
+  background: #16213e;
+  border: 1px solid #0f3460;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.legend {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+.legend-item { display: flex; align-items: center; gap: 0.3rem; }
+.badge {
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+}
+.badge-a { color: #4ecca3; }
+.badge-m { color: #e94560; }
+.badge-o { color: #a0a0c0; }
+label {
+  display: block;
+  margin: 1rem 0 0.3rem;
+  color: #a0a0c0;
+  font-size: 0.85rem;
+}
+select, input {
+  width: 100%;
+  padding: 0.6rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  background: #1a1a2e;
+  border: 1px solid #0f3460;
+  color: #e0e0e0;
+  outline: none;
+}
+select:focus, input:focus { border-color: #e94560; }
+option {
+  background: #1a1a2e;
+  color: #e0e0e0;
+  padding: 0.3rem;
+}
+optgroup {
+  color: #a0a0c0;
+  font-weight: bold;
+}
+#pInput { display: none; }
+.info {
+  background: #1a1a2e;
+  border: 1px solid #0f3460;
+  padding: 1rem;
+  margin-top: 0.8rem;
+  display: none;
+}
+.info .name { color: #e94560; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.3rem; }
+.info .desc { color: #e0e0e0; font-size: 0.85rem; margin-bottom: 0.5rem; }
+.info .formula { color: #4ecca3; font-size: 0.85rem; margin-bottom: 0.3rem; }
+.info .example { color: #a0a0c0; font-size: 0.85rem; }
+button {
+  width: 100%;
+  padding: 0.7rem;
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #e94560;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+button:hover { background: #c73652; }
+.loading {
+  text-align: center;
+  color: #a0a0c0;
+  margin-top: 1rem;
+  display: none;
+  font-size: 0.85rem;
+}
+.result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #1a1a2e;
+  border: 1px solid #0f3460;
+  display: none;
+}
+.result .value { font-size: 1.5rem; color: #e94560; font-weight: bold; }
+.result .detail { font-size: 0.8rem; color: #a0a0c0; margin-top: 0.3rem; }
+.result .error { color: #e94560; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Number Theory Calculator</h1>
+
+<div class="card">
+  <div class="legend">
+    <span class="legend-item"><span class="badge badge-a">[A]</span> Additive</span>
+    <span class="legend-item"><span class="badge badge-m">[M]</span> Multiplicative</span>
+    <span class="legend-item"><span class="badge badge-o">[O]</span> Other</span>
+  </div>
+
+  <label for="funcSelect">Function</label>
+  <select id="funcSelect">
+    <optgroup label="Additive Functions">
+      <option value="upperOmega">[A] &Omega;(n) &mdash; total prime factors (with multiplicity)</option>
+      <option value="lowerOmega">[A] &omega;(n) &mdash; distinct prime factors</option>
+      <option value="sumPrimes">[A] sopfr(n) &mdash; sum of prime factors (with repetition)</option>
+      <option value="sumDistinctPrimeDivisors">[A] sopfd(n) &mdash; sum of distinct prime factors</option>
+    </optgroup>
+    <optgroup label="Multiplicative Functions">
+      <option value="phi">[M] &phi;(n) &mdash; Euler's totient</option>
+      <option value="sigma">[M] &sigma;(n) &mdash; sum of divisors</option>
+      <option value="tau">[M] &tau;(n) &mdash; number of divisors</option>
+      <option value="mu">[M] &mu;(n) &mdash; M&ouml;bius function</option>
+      <option value="one">[M] 1(n) &mdash; constant function</option>
+      <option value="identity">[M] id(n) &mdash; identity function</option>
+      <option value="unitFunction">[M] &epsilon;(n) &mdash; unit function</option>
+      <option value="rad">[M] rad(n) &mdash; radical</option>
+      <option value="liouville">[M] &lambda;(n) &mdash; Liouville function</option>
+      <option value="psi">[M] &psi;(n) &mdash; Dedekind psi</option>
+      <option value="squareFree">[M] sqf(n) &mdash; squarefree indicator</option>
+      <option value="isPerfect">[M] perfect/abundant/deficient</option>
+    </optgroup>
+    <optgroup label="Other Functions">
+      <option value="isPrime">[O] isPrime(n) &mdash; primality test</option>
+      <option value="legendreSymbol">[O] (a|p) &mdash; Legendre symbol</option>
+    </optgroup>
+  </select>
+
+  <div class="info" id="info">
+    <div class="name" id="infoName"></div>
+    <div class="desc" id="infoDesc"></div>
+    <div class="formula" id="infoFormula"></div>
+    <div class="example" id="infoExample"></div>
+  </div>
+
+  <label for="nInput">n</label>
+  <input type="number" id="nInput" value="12" min="1">
+
+  <div id="pInput">
+    <label for="pInputField">p (odd prime modulus)</label>
+    <input type="number" id="pInputField" value="23" min="3">
+  </div>
+
+  <button id="computeBtn">Compute</button>
+
+  <div class="loading" id="loading">Computing&hellip;</div>
+
+  <div class="result" id="result">
+    <div class="value" id="resultValue"></div>
+    <div class="detail" id="resultFactorization"></div>
+    <div class="detail error" id="resultError"></div>
+  </div>
+</div>
+</div>
+
+<script>
+const funcInfo = {
+  upperOmega: {
+    name: "Big Omega &mdash; &Omega;(n)",
+    desc: "Total number of prime factors of n, counting multiplicity.",
+    formula: "&Omega;(n) = &sum; e &nbsp;for each prime power p<sup>e</sup> || n",
+    example: "&Omega;(12) = &Omega;(2<sup>2</sup> &times; 3<sup>1</sup>) = 2 + 1 = 3"
+  },
+  lowerOmega: {
+    name: "Little Omega &mdash; &omega;(n)",
+    desc: "Number of distinct prime factors of n.",
+    formula: "&omega;(n) = &sum; 1 &nbsp;for each prime p | n",
+    example: "&omega;(12) = 2 &nbsp;(distinct primes: 2, 3)"
+  },
+  sumPrimes: {
+    name: "Sum of Prime Factors &mdash; sopfr(n)",
+    desc: "Sum of the prime factors of n, counting multiplicity.",
+    formula: "sopfr(n) = &sum; e &times; p &nbsp;for each p<sup>e</sup> || n",
+    example: "sopfr(2000) = sopfr(2<sup>4</sup> &times; 5<sup>3</sup>) = 4&times;2 + 3&times;5 = 8 + 15 = 23"
+  },
+  sumDistinctPrimeDivisors: {
+    name: "Sum of Distinct Prime Divisors &mdash; sopfd(n)",
+    desc: "Sum of the distinct prime divisors of n.",
+    formula: "sopfd(n) = &sum; p &nbsp;for each prime p | n",
+    example: "sopfd(2000) = 2 + 5 = 7"
+  },
+  phi: {
+    name: "Euler's Totient &mdash; &phi;(n)",
+    desc: "Number of integers 1 &le; k &le; n that are coprime to n.",
+    formula: "&phi;(n) = n &prod;<sub>p|n</sub> (1 &minus; 1/p) = &prod; p<sup>e&minus;1</sup>(p &minus; 1)",
+    example: "&phi;(12) = 2<sup>2&minus;1</sup>(2&minus;1) &times; 3<sup>1&minus;1</sup>(3&minus;1) = 2 &times; 2 = 4"
+  },
+  sigma: {
+    name: "Sum of Divisors &mdash; &sigma;(n)",
+    desc: "Sum of all positive divisors of n.",
+    formula: "&sigma;(n) = &prod; (p<sup>e+1</sup> &minus; 1)/(p &minus; 1) &nbsp;for each p<sup>e</sup> || n",
+    example: "&sigma;(12) = (2<sup>3</sup>&minus;1)/(2&minus;1) &times; (3<sup>2</sup>&minus;1)/(3&minus;1) = 7 &times; 4 = 28"
+  },
+  tau: {
+    name: "Number of Divisors &mdash; &tau;(n)",
+    desc: "Number of positive divisors of n.",
+    formula: "&tau;(n) = &prod; (e + 1) &nbsp;for each p<sup>e</sup> || n",
+    example: "&tau;(12) = (2+1) &times; (1+1) = 3 &times; 2 = 6"
+  },
+  mu: {
+    name: "M&ouml;bius Function &mdash; &mu;(n)",
+    desc: "Zero if n has a squared prime factor; otherwise (&minus;1)<sup>k</sup> where k is the number of distinct primes.",
+    formula: "&mu;(n) = 0 if &exist; p<sup>2</sup> | n, else (&minus;1)<sup>k</sup>",
+    example: "&mu;(12) = 0 (has 2<sup>2</sup>), &mu;(6) = 1 (2&times;3, k=2 even), &mu;(30) = &minus;1 (k=3 odd)"
+  },
+  one: {
+    name: "Constant Function &mdash; 1(n)",
+    desc: "Returns 1 for every input n.",
+    formula: "1(n) = 1",
+    example: "1(12) = 1"
+  },
+  identity: {
+    name: "Identity Function &mdash; id(n)",
+    desc: "Returns n unchanged.",
+    formula: "id(n) = n",
+    example: "id(12) = 12"
+  },
+  unitFunction: {
+    name: "Unit Function &mdash; &epsilon;(n)",
+    desc: "Returns 1 if n = 1, otherwise returns 0.",
+    formula: "&epsilon;(n) = 1 if n = 1, else 0",
+    example: "&epsilon;(12) = 0, &epsilon;(1) = 1"
+  },
+  rad: {
+    name: "Radical &mdash; rad(n)",
+    desc: "Product of the distinct prime numbers dividing n.",
+    formula: "rad(n) = &prod; p &nbsp;for each prime p | n",
+    example: "rad(12) = 2 &times; 3 = 6"
+  },
+  liouville: {
+    name: "Liouville Function &mdash; &lambda;(n)",
+    desc: "Returns 1 if &Omega;(n) (Big Omega) is even, &minus;1 if &Omega;(n) is odd.",
+    formula: "&lambda;(n) = (&minus;1)<sup>&Omega;(n)</sup>",
+    example: "&lambda;(12) = (&minus;1)<sup>&Omega;(2<sup>2</sup>&times;3<sup>1</sup>)</sup> = (&minus;1)<sup>3</sup> = &minus;1"
+  },
+  psi: {
+    name: "Dedekind Psi Function &mdash; &psi;(n)",
+    desc: "Multiplicative function related to the totient.",
+    formula: "&psi;(n) = n &prod;<sub>p|n</sub> (1 + 1/p) = &prod; p<sup>e&minus;1</sup>(p + 1)",
+    example: "&psi;(12) = 2<sup>1</sup>(2+1) &times; 3<sup>0</sup>(3+1) = 2&times;3 &times; 1&times;4 = 24"
+  },
+  squareFree: {
+    name: "Squarefree Indicator &mdash; sqf(n)",
+    desc: "Returns 1 if n is squarefree (all prime exponents = 1), otherwise 0.",
+    formula: "sqf(n) = 1 if all exponents = 1, else 0",
+    example: "sqf(12) = 0 (has 2<sup>2</sup>), sqf(6) = 1"
+  },
+  isPerfect: {
+    name: "Perfect / Abundant / Deficient",
+    desc: "Classifies n: 0 if &sigma;(n) = 2n (perfect), 1 if &sigma;(n) > 2n (abundant), &minus;1 if &sigma;(n) < 2n (deficient).",
+    formula: "isPerfect(n) = 0 if &sigma;(n) = 2n, 1 if &sigma;(n) > 2n, &minus;1 if &sigma;(n) < 2n",
+    example: "isPerfect(6) = 0 (&sigma;(6)=12=2&times;6), isPerfect(12) = 1 (abundant)"
+  },
+  isPrime: {
+    name: "Primality Test &mdash; isPrime(n)",
+    desc: "Returns whether n is a prime number.",
+    formula: "Trial division by all integers up to &radic;n",
+    example: "isPrime(7) = true, isPrime(12) = false"
+  },
+  legendreSymbol: {
+    name: "Legendre Symbol &mdash; (a | p)",
+    desc: "Returns 0 if p divides a, 1 if a is a quadratic residue modulo p, &minus;1 otherwise.",
+    formula: "(a | p) &equiv; a<sup>(p&minus;1)/2</sup> (mod p) &nbsp;(for odd prime p)",
+    example: "(5 | 23) = &minus;1 &nbsp;(5 is not a quadratic residue mod 23)"
+  }
+};
+
+const funcSelect = document.getElementById('funcSelect');
+const nInput = document.getElementById('nInput');
+const pInput = document.getElementById('pInput');
+const pInputField = document.getElementById('pInputField');
+const computeBtn = document.getElementById('computeBtn');
+const loading = document.getElementById('loading');
+const resultDiv = document.getElementById('result');
+const resultValue = document.getElementById('resultValue');
+const resultFactorization = document.getElementById('resultFactorization');
+const resultError = document.getElementById('resultError');
+const info = document.getElementById('info');
+const infoName = document.getElementById('infoName');
+const infoDesc = document.getElementById('infoDesc');
+const infoFormula = document.getElementById('infoFormula');
+const infoExample = document.getElementById('infoExample');
+
+function updateInfo() {
+  const key = funcSelect.value;
+  const data = funcInfo[key];
+  if (data) {
+    infoName.innerHTML = data.name;
+    infoDesc.innerHTML = data.desc;
+    infoFormula.innerHTML = data.formula;
+    infoExample.innerHTML = data.example;
+    info.style.display = 'block';
+  } else {
+    info.style.display = 'none';
+  }
+  pInput.style.display = key === 'legendreSymbol' ? 'block' : 'none';
+}
+
+funcSelect.addEventListener('change', updateInfo);
+
+computeBtn.addEventListener('click', async () => {
+  const func = funcSelect.value;
+  const n = nInput.value;
+  let url = `/api/compute?function=${encodeURIComponent(func)}&n=${encodeURIComponent(n)}`;
+  if (func === 'legendreSymbol') {
+    url += `&p=${encodeURIComponent(pInputField.value)}`;
+  }
+
+  resultDiv.style.display = 'none';
+  loading.style.display = 'block';
+  resultError.textContent = '';
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    loading.style.display = 'none';
+    resultDiv.style.display = 'block';
+
+    if (data.error) {
+      resultValue.textContent = '';
+      resultFactorization.textContent = '';
+      resultError.textContent = 'Error: ' + data.error;
+    } else {
+      resultError.textContent = '';
+      resultValue.textContent = data.result;
+      if (data.factorization) {
+        resultFactorization.textContent = n + ' = ' + data.factorization;
+      }
+    }
+  } catch (err) {
+    loading.style.display = 'none';
+    resultDiv.style.display = 'block';
+    resultValue.textContent = '';
+    resultFactorization.textContent = '';
+    resultError.textContent = 'Error: ' + err.message;
+  }
+});
+
+updateInfo();
+computeBtn.click();
+</script>
+</body>
+</html>
